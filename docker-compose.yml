@@ -1,0 +1,14 @@
+version: "3.0"
+
+services:
+
+  app:
+    image: jekyll/jekyll
+    container_name: website
+    ports:
+      - "4000:4000"
+    volumes:
+      - ".:/srv/jekyll"
+    command: jekyll serve --watch --force_polling --verbose
+    environment:
+      - JEKYLL_ENV=development

@@ -1,51 +1,56 @@
-baseurl: '/'
-permalink: pretty
-title: 'Jekyll Serif'
+#-------------------------------
+# General Site Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-logo:
-  mobile: "images/logo/logo-mobile.svg"
-  mobile_height: "32px"
-  mobile_width: "32px"
-  desktop: "images/logo/logo.svg"
-  desktop_height: "32px"
-  desktop_width: "120px"
 
-home: 
-  limit_services: 6
+#-------------------------------
+# Build Settings
+markdown: kramdown
+permalink: /:title
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
 
+paginate: 6
+paginate_path: "/blog/page/:num"
+
+
+#-------------------------------
+# Collections
 collections:
-  services:
+  pages:
     output: true
-    sort_by: weight
-  team:
+    permalink: /:name
+  posts:
     output: true
+    permalink: /blog/:slug
+  projects:
+    output: true
+    permalink: /project/:slug
 
+# Pages Path
 defaults:
   - scope:
       path: ""
-      type: "services"
     values:
-      layout: "service"
+      layout: "default"
   - scope:
       path: ""
-      type: "team"
+      type: "pages"
     values:
-      layout: "team"
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
 
 sass:
-  style: compressed # possible values: nested expanded compact compressed
-
-plugins:
-  - jekyll-environment-variables
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - LICENSE.md
-  - LICENSE
-  - README.md
+  sass_dir: _sass
+  style: compressed
