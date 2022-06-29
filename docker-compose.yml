@@ -3,7 +3,7 @@ version: "3.0"
 services:
 
   app:
-    image: jekyll/jekyll
+    image: jekyll/jekyll:3.8
     container_name: website
     ports:
       - "4000:4000"
