@@ -1,6 +1,6 @@
 #-------------------------------
 # Site Settings
-title: Hilton
+title: Christian
 logo: # You can add own logo. For example '/images/logo.png'.
 description: Hilton is a super simple portfolio theme for Jekyll.
 color_scheme: auto # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
@@ -16,6 +16,8 @@ menu__settings:
       url: '/projects/'
     - title: 'Blog'
       url: '/blog/'
+    - title: 'Talks'
+      url: '/talks/'
     - title: 'Pages'
       submenu:
       - url: '/about/'
@@ -34,7 +36,7 @@ author:
   author__avatar: '/images/01-1.jpg'
 
 social:
-- {icon: "ion-logo-twitter", link: "https://twitter.com"}
+- {icon: "ion-logo-twitter", link: "https://twitter.com/boxblinkracer"}
 - {icon: "ion-logo-facebook", link: "https://facebook.com"}
 - {icon: "ion-logo-instagram", link: "https://instagram.com"}
 - {icon: "ion-logo-pinterest", link: "https://pinterest.com"}
