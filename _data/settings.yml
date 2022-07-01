@@ -1,8 +1,8 @@
 #-------------------------------
 # Site Settings
-title: Christian
+title: boxblinkracer
 logo: # You can add own logo. For example '/images/logo.png'.
-description: Hilton is a super simple portfolio theme for Jekyll.
+description: Hi my name is Christian
 color_scheme: auto # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
 
 
@@ -12,35 +12,27 @@ menu__settings:
   menu__items:
     - title: 'Home'
       url: '/'
-    - title: 'Projects'
-      url: '/projects/'
+   # - title: 'Dev Projects'
+   #   url: '/projects/'
+   # - title: 'Talks'
+  #    url: '/talks/'
+   # - title: 'Courses'
+   #   url: '/courses/'
     - title: 'Blog'
       url: '/blog/'
-    - title: 'Talks'
-      url: '/talks/'
-    - title: 'Pages'
-      submenu:
-      - url: '/about/'
-        title: 'About'
-      - url: '/contact/'
-        title: 'Contact'
-      - url: '/elements/'
-        title: 'Elements'
 
 
 #-------------------------------
 # Author Settings
 author:
   author__name: Christian Dangl
-  author__bio: So, If you're looking for designs that have a high visual impact on your target audience, while also aligning with your brand, Let's talk about your project in more detail.
-  author__avatar: '/images/01-1.jpg'
+  author__bio: I develop things for mobile, web and Windows, and I love to teach people about Software Architecture and quality.
+  author__avatar: '/images/01.jpg'
 
 social:
-- {icon: "ion-logo-twitter", link: "https://twitter.com/boxblinkracer"}
-- {icon: "ion-logo-facebook", link: "https://facebook.com"}
-- {icon: "ion-logo-instagram", link: "https://instagram.com"}
-- {icon: "ion-logo-pinterest", link: "https://pinterest.com"}
-- {icon: "ion-logo-github", link: "https://github.com"}
+  - { icon: "ion-logo-twitter", link: "https://twitter.com/boxblinkracer" }
+  - { icon: "ion-logo-linkedin", link: "https://www.linkedin.com/in/cdangl/" }
+  - { icon: "ion-logo-github", link: "https://github.com/boxblinkracer" }
 
 # Example of adding a new link to the footer - {icon: "ion-logo-dribbble", link: "https://dribbble.com"}
 # Other icons can be found at https://ionicons.com/v4/
@@ -49,53 +41,59 @@ social:
 #-------------------------------
 # Hero Settings
 hero:
-  hero__title: I'm Christian, I develop software and this site is still under construction!
-  hero__description: So, If you're looking for designs that have a high visual impact on your target audience, while also aligning with your brand, Let's talk about your project in more detail.
+  hero__title: I'm Christian and I develop software and products
+  hero__description: I develop things for mobile, web and Windows, and I love to teach people about Software Architecture and quality.<br /><br /><ul><li>Working at dasistweb GmbH for e-Commerce stuff</li><li>Owner of Live Score GmbH for scoreboard graphics stuff</li></ul>I like Shopware, writing articles, giving talks, video production and everything else :)
   hero__image: '/images/01.jpg'
+
+
+#-------------------------------
+codestyle__settings:
+  codestyle__title: about my coding style?!....
+  codestyle__description: Separation of concerns mixed with well thought DI on immutable objects that fail fast and are being used through their interfaces for real integration or fake integration in lots of unit and integration tests!
 
 
 #-------------------------------
 # Projects Settings
 projects__settings:
-  projects__title: Latest works
-  projects__description: I shows only the best websites and portfolios built completely with passion, simplicity & creativity!
+  projects__title: Things I do
+  projects__description:
 
 
 #-------------------------------
 # Testimonials Section
-testimonial__title: What clients say
+testimonial__title: What people say
 testimonial__description:
 
-testimonial__items:
-  - name: "Aspen Carder"
-    image: "/images/client-1.jpg"
-    designation: "Lettering Artist"
-    link: "https://twitter.com/"
-    content : "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
-
-  - name: "Lydia Siphron"
-    image: "/images/client-2.jpg"
-    designation: "Designer"
-    link: "https://facebook.com/"
-    content : "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
-
-  - name: "Craig Vaccaro"
-    image: "/images/client-3.jpg"
-    designation: "Web developer"
-    link: "https://twitter.com/"
-    content : "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
-
-  - name: "Anika Calzoni"
-    image: "/images/client-4.jpg"
-    designation: "Lettering Artist"
-    link: "https://facebook.com/"
-    content : "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
-
-  - name: "Marcus Botosh"
-    image: "/images/client-5.jpg"
-    designation: "Full Stack Designer"
-    link: "https://twitter.com/"
-    content : "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
+#testimonial__items:
+#  - name: "Aspen Carder"
+#    image: "/images/client-1.jpg"
+#    designation: "Lettering Artist"
+#    link: "https://twitter.com/"
+#    content: "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
+#
+#  - name: "Lydia Siphron"
+#    image: "/images/client-2.jpg"
+#    designation: "Designer"
+#    link: "https://facebook.com/"
+#    content: "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
+#
+#  - name: "Craig Vaccaro"
+#    image: "/images/client-3.jpg"
+#    designation: "Web developer"
+#    link: "https://twitter.com/"
+#    content: "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
+#
+#  - name: "Anika Calzoni"
+#    image: "/images/client-4.jpg"
+#    designation: "Lettering Artist"
+#    link: "https://facebook.com/"
+#    content: "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
+#
+#  - name: "Marcus Botosh"
+#    image: "/images/client-5.jpg"
+#    designation: "Full Stack Designer"
+#    link: "https://twitter.com/"
+#    content: "Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration"
 
 
 #-------------------------------
@@ -125,16 +123,14 @@ footer_menu__settings:
   menu__items:
     - title: 'Home'
       url: '/'
-    - title: 'Projects'
-      url: '/projects/'
+   # - title: 'Dev Projects'
+   #   url: '/projects/'
+   # - title: 'Talks'
+   #   url: '/talks/'
+   # - title: 'Courses'
+   #   url: '/courses/'
     - title: 'Blog'
       url: '/blog/'
-    - url: '/about/'
-      title: 'About'
-    - url: '/contact/'
-      title: 'Contact'
-    - url: '/elements/'
-      title: 'Elements'
 
 
 #-------------------------------
