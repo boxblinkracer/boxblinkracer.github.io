@@ -43,9 +43,9 @@ TestRail (<a target="_blank" href="https://www.gurock.com/testrail">https://www.
 I like it because of its **efficient** look and feel, its **features** and the available **API** that lets you really get the most out of your processes and integrations.
 
 The basic concept is that you create **test cases** in your projects.
-Test cases are the list of available things to test in a project.
+Test cases are the elaborated scenarios, stories and things you want to test in your project.
 These test cases can be structured with **sections** so that you have a better overview.
-Every test case has different properties such as **type**, **automation type**, **reference IDs** and more to allow you even more by filtering for what you need.
+Every test case has different properties such as **type**, **automation type**, **reference IDs** that allow you to apply filters later on.
 
 <div class="gallery-box">
     <div class="gallery">
