@@ -88,7 +88,7 @@ Depending on your defect management, you can then proceed by pushing defects to 
 
 
 While I could easily test every test run of our plan manually, I can also start to **outsource these**.
-And I think the best one would be let **a system** test some of our test runs, right?
+And I think the best one would be to let **a system** test some of our test runs, right?
 
 # Test Automation Frameworks
 
