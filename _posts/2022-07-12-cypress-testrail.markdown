@@ -188,13 +188,15 @@ It usually starts with an R, like "R68".
 
 ## 3. Register Plugin
 
-Just place this line in your `plugins/index.js` file. There's nothing more that is required to register the TestRail reporter.
+Just place the require and register line in your `plugins/index.js` file. There's nothing more that is required to register the TestRail reporter.
 
 ```bash 
 const TestRailReporter = require('cypress-testrail');
 
 module.exports = (on, config) => {
+    // configure and register our reporter
     new TestRailReporter(on, config).register();
+    
     return config
 }
 ```
