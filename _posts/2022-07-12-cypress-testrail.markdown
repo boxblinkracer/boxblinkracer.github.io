@@ -15,6 +15,9 @@ It is indeed a possible solution for many cases, but when it comes to testing, p
 
 > Automation is not the solution to increase quality, but it's a great help to save time and reduce effort.
 
+<p><iframe src="https://www.youtube.com/embed/8f6UhnYDJjg" loading="lazy" frameborder="0" allowfullscreen></iframe></p>
+
+
 When we talk about testing automation, some people focus on scaling up their tests to be fully automated and try to get rid of manual work, while
 others try to only automate what makes sense.
 
@@ -138,7 +141,6 @@ After your tests have been executed, you see a nice report and overview about yo
         <img src="/images/blog/cypress-testrail/cypress-report.png" loading="lazy" alt="">
     </div>
 </div>
-
 
 # Cypress TestRail Integration
 
