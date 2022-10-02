@@ -12,6 +12,7 @@ tags:   [qa, test-automation]
 ---
 
 
+
 We all know the pitfalls of not having automated tests in our software.
 While some developers are still battling to integrate unit tests in their projects, others have already moved to the next chapter by using some of the great automated E2E testing tools out there.
 
@@ -32,6 +33,22 @@ When you develop on a normal project wouldn't you use all these wonderful design
 This does also apply to testing projects!
 
 And that's what it's all about today!
+
+<hr />
+
+Too lazy to read?! Watch the videos:
+<div class="row">
+  <div class="col-3">
+    <a href="https://tv.shopware.com/de/video/1151503/?t=11097" target="_blank">
+        <img src="/images/videos/scd-2021.png" loading="lazy" alt="">
+    </a> 
+  </div>
+ <div class="col-3" style="margin-left:10px;">
+ <iframe width="100%" height="61" src="https://www.youtube.com/embed/mNcz2nEn1co" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ </div>
+ </div>
+
+<hr />
 
 # Why Design Patterns for Testing?
 
@@ -221,19 +238,6 @@ scenario.execute();
 Creating automatic E2E tests is way more than just putting together click after click! It requires advanced knowledge and skills to build a solid architecture that **lasts as long as your actual AUT**.
 
 But it's totally worth the time and effort, and I would strongly recommend giving it a try in your next project!urity in mind, and you'll be very happy with Consul in your stack!
-
-<hr />
-Too lazy to read?! Watch the videos:
-<div class="row">
-  <div class="col-3">
-    <a href="https://tv.shopware.com/de/video/1151503/?t=11097" target="_blank">
-        <img src="/images/videos/scd-2021.png" loading="lazy" alt="">
-    </a> 
-  </div>
- <div class="col-3" style="margin-left:10px;">
- <iframe width="100%" height="61" src="https://www.youtube.com/embed/mNcz2nEn1co" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- </div>
- </div>
 
 
 <br />
