@@ -97,8 +97,8 @@ When deciding on a framework to automate your test cases, please pay attention t
 What **programming language** do you prefer? Do you need **CI/CD** options? What is the most stable framework for your projects (yes, you really need to try it!).
 And also, what do you actually want to test? And what **platform**?
 
-I've reduced my stack to 2 basic frameworks that I like very much.
-For web related things I use **Cypress** for Windows I use **Ranorex**.
+I've reduced my stack to 3 basic frameworks that I like very much.
+For web related things I use **Cypress**, for Windows I use **Ranorex**, and for Mac/iOS I use **Xcode**.
 
 And especially when it comes to testing Windows Desktop applications, there is just no way around Ranorex.
 
@@ -176,7 +176,7 @@ and let TestRail know what **Test Case ID** this test is for.
 That is everything, easy right?!
 Let's check it out together.
 
-If you use something else than Ranorex, just look at my Github page.
+If you use something other than Ranorex, just look at my Github page.
 I do have <a target="_blank" href="https://github.com/boxblinkracer?tab=repositories">more integrations</a> available.
 
 # Use the Ranorex TestRail Integration
