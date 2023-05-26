@@ -91,7 +91,7 @@ Fortunately, I was able to attend the Merchant day as well. From a developer's p
 </div>
 
 
-To keep it brief for now, it was truly a great day. Sebastian Hamann's keynote keeps getting better every year, and he was accompanied by Mark Stanley, Vanessa Brauch, and Moritz Naczenski, who simply nailed it. Cassie Kozyrkov from Google dispelled our fears about AI by considering it as an optional tool we can use, delivering one of the most remarkable talks you'll ever hear. Marcel Korzen (Wortmann), Felix Schmalenberger (Wortmann) and Martin Weinmayr (dasistweb) showcased Guided Shopware as a fascinating B2B tool, and Jonas Kröger, Jonas Dambacher, and Co. discussed Shopware PaaS.
+To keep it brief for now, it was truly a great day. Sebastian Hamann's keynote keeps getting better every year, and he was accompanied by Mark Stanley, Vanessa Brauch, and Moritz Naczenski, who simply nailed it. Cassie Kozyrkov from Google dispelled our fears about AI by considering it as an optional tool we can use, delivering one of the most remarkable talks you'll ever hear. Marcel Korzen (Wortmann), Felix Schmalenberger (Wortmann) and Martin Weinmayr (dasistweb) showcased Guided Shopping as a fascinating B2B tool, and Jonas Kröger, Jonas Dambacher, and Co. discussed Shopware PaaS.
 
 <div class="gallery-box">
     <div class="gallery">
