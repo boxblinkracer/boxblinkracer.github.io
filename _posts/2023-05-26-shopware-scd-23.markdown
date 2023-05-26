@@ -26,7 +26,7 @@ One positive aspect was the presence of a single track of talks, which made it c
 </div>
 
 
-The day commenced with Stefan Hamann, the CEO of Shopware, taking us on a journey through the history of Shopware using an old overhead projector. It evoked a pure sense of nostalgia and highlighted the company's journey from its humble beginnings to the proud establishment it is today.
+The day commenced with Rico Neitzel, interviewing Stefan Hamann, the CEO of Shopware. The talk led us on a journey through the history of Shopware using an old overhead projector. It evoked a pure sense of nostalgia and highlighted the company's journey from its humble beginnings to the proud establishment it is today.
 
 <div class="gallery-box">
     <div class="gallery">
