@@ -4,7 +4,7 @@ title: Shopware Community Days 2023 from a Developers Perspective
 description: SCD with a new concept on empowering developers and merchants in the eCommerce Community
 date: 2023-05-26 10:00:00 +0300
 image: '/images/blog/shopware-scd23/header.png'
-tags: [ shopware ]
+tags: [ shopware, events ]
 ---
 
 
