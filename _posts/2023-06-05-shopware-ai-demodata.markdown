@@ -96,3 +96,7 @@ With the help of artificial intelligence (AI), it generates sample data that ali
 
 By enhancing the visual appeal and authenticity of your store with high-quality images, the plugin adds a touch of professionalism.
 Simply install the plugin, configure it with your OpenAI API key, and enjoy the benefits of AI-powered demo data generation in your Shopware 6 store.
+
+Links:
+<a target="_blank" rel="noopener nofollow noreferrer" href="https://github.com/boxblinkracer/shopware-ai-demodata">https://github.com/boxblinkracer/shopware-ai-demodata</a>.
+
