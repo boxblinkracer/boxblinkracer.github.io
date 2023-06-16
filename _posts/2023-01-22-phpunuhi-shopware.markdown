@@ -4,7 +4,7 @@ title:  Managing Translations in Shopware 6 with PHPUnuhi
 description: Streamline your translation process and improve accuracy with PHPUnuhi's tools and features for Shopware 6
 date:   2023-01-22 10:00:00 +0300
 image:  '/images/blog/shopware-phpunuhi/header.png'
-tags:   [devops, shopware]
+tags:   [devops, shopware, Mollie]
 ---
 
 

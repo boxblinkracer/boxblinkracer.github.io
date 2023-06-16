@@ -4,7 +4,7 @@ title:  Automate E2E Tests with Cypress, Shopware and Mollie
 description: Ever wanted to do real world payment and checkout E2E tests in an e-commerce system! This tutorial is made for you!
 date:   2021-04-08 20:00:00 +0300
 image:  '/images/blog/cypress-shopware-mollie/header.png'
-tags:   [qa, test-automation, shopware, payment]
+tags:   [qa, test-automation, shopware, payment, Mollie]
 ---
 
 

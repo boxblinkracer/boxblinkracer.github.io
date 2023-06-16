@@ -4,7 +4,7 @@ title:  Improve your Shopware 6 experience with Fixtures
 description: Improving development and testing experiences with fixtures in your Shopware 6 plugin and shop.
 date:   2022-10-03 15:00:00 +0300
 image:  '/images/blog/shopware-fixtures/header.png'
-tags:   [shopware, dev, qa, test-automation]
+tags:   [shopware, dev, qa, test-automation, Mollie]
 ---
 
 ---
