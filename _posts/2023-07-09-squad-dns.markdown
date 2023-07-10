@@ -1,0 +1,152 @@
+---
+layout: post
+title: SquadDNS - DNS Proxy for Dev Teams
+description: Simplify local development and wrap tunnel services like NGROK, Cloudflare, add Basic Auth and more
+date: 2023-07-09 10:00:00 +0300
+image: '/images/blog/squad-dns/header.png'
+tags: [ shopware, dev, devops, qa, mollie ]
+---
+
+
+---
+
+
+**Development environments** are probably one of the fastest changing things in the world of software development.
+Every quarter comes with a new technology, and sometimes it seems as if switching to a new stack is more important than improving the current one.
+
+I'm a huge fan of **Docker** since day one. It helps me to build everything I need on my local machine.
+If we skip the part with downloading images and dependencies for my applications, I can fully **work offline** with all kinds of scenarios and architecture setups.
+
+But still, there are some cases where you **need to be online** if you want to completely test your code. Let's imagine a payment provider sending **webhooks** to your local machine.
+Mollie for instance, allows you to specify individual webhook URLs for each payment.
+If local machines would be online, every developer could work in parallel locally with a 100% accuracy when it comes to testing **real payment flows**.
+
+Or what about the **Shopware App system**?
+Let's say you use a 3rd party app that communicates in both ways, so also back to your shop! How can you even run that locally? Not possible, right?
+Does that mean you cannot use Shopware Apps locally?
+
+The solution for this is easy, and it's called a **tunnel service**.
+
+There are many of them and some only give you random domains.
+
+If you know me, then you know that I'm a huge fan of preparing nice plug'n'play systems where everything just works out of the box.
+And random domains are not really plug'n'play, right?
+
+That's why I've developed **SquadDNS** (<a target="_blank" rel="noopener nofollow noreferrer" href="https://www.squad-dns.com">https://www.squad-dns.com</a>).
+
+But let's first start with the basics.
+
+# What are tunnel services?
+
+Tunnel services like Ngrok and Cloudflare Tunnel play a crucial role in modern IT development by providing **secure connections** between **local development environments** and the **internet**.
+
+These services act as intermediaries, allowing developers to **expose their locally hosted applications or services to the outside world** through secure tunnels.
+
+Ngrok, a widely used tunnel service, simplifies the process of accessing local development servers or applications remotely with its intuitive setup and support
+for HTTP, HTTPS, and TCP tunnels.
+
+Cloudflare Tunnel, on the other hand, leverages the powerful Cloudflare network to establish secure connections, offering enhanced performance, scalability,
+and integration with other Cloudflare services.
+
+<div class="gallery-box">
+    <div class="gallery">
+        <img src="/images/blog/squad-dns/tunnel.png" loading="lazy" alt="" >
+    </div>
+</div>
+
+
+By using tunnel services, developers can easily test webhooks, APIs, and external integrations on their local setups, saving time and resources while maintaining data security.
+
+# What is SquadDNS?
+
+Tunnel services such as Ngrok and Cloudflare come with a paid, or with a limited free plan.
+The free plans usually only give you a random domain at the time when you start them.
+
+When you have development setups for multiple developers in your team, you usually want to have easy and plug'n'play setups that just work for every use case.
+The use case "go public" for webhooks or Shopware apps however is not possible if you only have a random domain.
+
+This is why I've created SquadDNS.
+It helps you to use **fixed, personal and static domains** for your developers, **no matter what kind of tunnel service** you are using (if any).
+
+SquadDNS is a DNS proxy that forwards requests to your static domain through the tunnel service of your choice.
+
+# How does it work?
+
+SquadDNS comes as an easy **Docker image**.
+All you need is a server where Docker is installed. The good thing is,
+It's your personal setup, and you have full control over your data and records.
+
+Once installed, you first need to create (sub)domains for your developers.
+This is usually done by using the DNS management of your **domain provider** (e.g. Cloudflare).
+The **target** of your domains should be the **IP address** of your server where SquadDNS is running.
+
+
+<div class="gallery-box">
+    <div class="gallery">
+        <img src="/images/blog/squad-dns/cloudflare.png" loading="lazy" alt="" >
+    </div>
+</div>
+
+
+As soon as your domains exist, you can add them to SquadDNS.
+And this is where the magic happens.
+
+When your developer **starts a tunnel**, the (random) domain of the tunnel service can be easily **added as target** to the developer domain in SquadDNS.
+
+<div class="gallery-box">
+    <div class="gallery">
+        <img src="/images/blog/squad-dns/domains.png" loading="lazy" alt="" >
+    </div>
+</div>
+
+When a request is now done to the developer domain, the domain provider will **forward** all requests to your SquadDNS server,
+and SquadDNS will forward them to the **mapped target domain** of your current tunnel service of choice.
+
+It's as simple as that.
+
+# Is this really new?
+
+The idea itself is not new, but the way how it can be managed is indeed a benefit for teams.
+So SquadDNS **focuses on the team aspect** and not on the individual developer.
+And it comes with way more features.
+
+One of the benefits is indeed the **easy UX** for team members.
+Open the domain list, update your target and click on update. In just a **few seconds** your tunnel is reachable.
+
+<div class="gallery-box">
+    <div class="gallery">
+        <img src="/images/blog/squad-dns/update.png" loading="lazy" alt="" >
+    </div>
+</div>
+
+
+If you want to **restrict access** to your system, there is also an easy solution.
+By enabling the "authentication options" for a specific domain, the access is automatically secured by the proxy.
+
+By default **Basic Authentication** is being used. And the great thing, all users of the SquadDNS system do already have access.
+This is why it's also possible to add **guest users** to the system. So if you want to share your local environment with a customer or your QA team, just open a tunnel, optionally create
+a new guest user, and you're done.
+
+In addition to this, it's possible to **allow a list of IP addresses** to access the domain.
+If the IP address matches, then the authentication is skipped. If not, it uses Basic Authentication as fallback.
+
+There's also plenty of documentation and step-by-step tutorials on the website.
+When creating setups like these, half of the part is the product, the other half is the skill and knowledge, which is clearly explained in the **documentation**.
+
+You'll learn how to build easy setups with Shopware, how NGINX configurations work, how to use the special **SQUADDNS_HOST header entry** and way more.
+
+# Conclusion
+
+Even though we live in a world where Docker allows us to do almost anything on our machine, there are still some scenarios where you **need to be online**.
+Tunnel services are a great way to achieve this, but they come with some **limitations**.
+
+With the help of SquadDNS, you can **easily manage your domains** and tunnel services in one place.
+Create **automated scripts** that use your personal and static developer domains, and help your team to be more productive with ready to use setups.
+
+And if you want to restrict access to your system, you can easily do this with the built-in **authentication options**.
+
+Links:
+
+* <a target="_blank" rel="noopener nofollow noreferrer" href="https://www.squad-dns.com">https://www.squad-dns.com</a>
+* <a target="_blank" rel="noopener nofollow noreferrer" href="https://www.mollie.com">https://www.mollie.com</a>
+* <a target="_blank" rel="noopener nofollow noreferrer" href="https://www.shopware.com">https://www.shopware.com</a>
