@@ -2,7 +2,7 @@
 layout: post
 title: Developing with the Mollie Payments App for Shopware
 description: Use the new Mollie Shopware App for local development of your Shopware shops
-date: 2023-07-09 10:00:00 +0300
+date: 2023-08-30 10:00:00 +0300
 image: '/images/blog/mollie-app/header.png'
 tags: [ shopware, dev, mollie ]
 ---
