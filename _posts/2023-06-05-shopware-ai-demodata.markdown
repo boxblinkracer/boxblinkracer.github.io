@@ -4,7 +4,7 @@ title: AI Demo Data Generator for Shopware 6
 description: Easily build unique demo data for your Shopware 6 store with the AI Demo Data plugin
 date: 2023-06-04 10:00:00 +0300
 image: '/images/blog/shopware-ai-demodata/header.png'
-tags: [ shopware, dev, qa ]
+tags: [ shopware, dev, qa, ai ]
 ---
 
 
