@@ -43,7 +43,7 @@ social:
 # Hero Settings
 hero:
   hero__title: I'm Christian and I develop software and products
-  hero__description: I develop things for mobile, web and desktop, and I love to teach people about Software Architecture and quality.<br /><br /><ul><li>Working at <span class="text-highlight">dasistweb GmbH</span> for e-Commerce stuff</li><li>Owner of <span class="text-highlight">Live Score GmbH</span> for scoreboard graphics stuff</li></ul>I like Shopware, writing articles, giving talks, video production and everything else :)
+  hero__description: I develop things for mobile, web and desktop, and I love to teach people about software architecture and quality.<br /><br /><ul><li>Working at <a class="text-highlight" href="https://www.dasistweb.de/de/shopware-agentur" target="_blank">dasistweb - Shopware Agentur</a> for e-Commerce</li><li>Owner of <a class="text-highlight" href="https://www.live-score-app.com" target="_blank">Live Score GmbH</a> for scoreboard graphics stuff</li></ul>I like Shopware, writing articles, giving talks, video production and everything else :)
   hero__image: '/images/01.jpg'
 
 
