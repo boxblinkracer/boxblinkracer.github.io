@@ -27,6 +27,17 @@ body {
   }
 }
 
+.text-highlight {
+  color: #474258;
+  font-weight: bold;
+  //padding: 5px;
+  //border-radius: 12px;
+}
+
+.td-nowrap {
+  white-space: nowrap;
+}
+
 *::selection {
   color: var(--dark);
   background-color: var(--brand-color);
@@ -132,7 +143,7 @@ img,
 img,
 .lightense-wrap,
 .gallery {
-  &+em {
+  & + em {
     display: block;
     margin-top: 20px;
     font-size: 12px;
@@ -141,7 +152,7 @@ img,
     font-weight: normal;
     text-align: center;
     color: var(--text-alt-color);
-  
+
     a {
       font-weight: 500;
       border-bottom: 1px solid var(--border-color);
@@ -152,7 +163,7 @@ img,
         border-color: var(--link-color-hover);
       }
     }
-  
+
     @media only screen and (max-width: $mobile) {
       margin-top: 16px;
     }
@@ -206,6 +217,7 @@ table th {
 table tr {
   background-color: var(--tr-color);
   transition: all .3s ease;
+
   &:nth-child(even) {
     background-color: transparent;
   }
