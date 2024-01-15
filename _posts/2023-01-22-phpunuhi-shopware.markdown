@@ -100,7 +100,7 @@ When creating a Translation-Set, you can specify additional settings that may de
 These settings can include the **storage format**, as well as **filters** to include or exclude specific translations.
 This allows for even more control and customization of your translation process.
 
-Let's create a simple XML-based configuration for our plugin:
+Let's create a simple XML-based configuration **phpunuhi.xml** for our plugin:
 
 ```xml 
 
