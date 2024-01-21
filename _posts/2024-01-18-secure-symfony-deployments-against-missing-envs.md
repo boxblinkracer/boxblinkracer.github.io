@@ -124,4 +124,4 @@ This simple solution can easily prevent you from running into the same issue in 
 
 Links:
 
-* <a target="_blank" rel="noopener nofollow noreferrer" href="https://symfony.com/doc/current/configuration/env_var_processors.html">https://symfony.com/doc/current/configuration/env_var_processors.html</a>
+* <a target="_blank" rel="noopener nofollow noreferrer" href="https://symfony.com/doc/current/configuration/env_var_processors.html">Symfony Docs</a>
