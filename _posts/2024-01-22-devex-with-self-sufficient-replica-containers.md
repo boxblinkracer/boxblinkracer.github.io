@@ -96,7 +96,7 @@ Okay - we have our worker containers. But how do we start our worker processes?
 We could use **cronjobs** or **supervisor**, which gives us even more options.
 
 Let's start by installing supervisor.
-We do this by providing a installation script in our case.
+We do this by providing an installation script in our case.
 
 Please keep in mind, depending on your container image there are different options to run installation scripts.
 With **dockware** it's possible to inject a **boot_end** script that is executed at the end of the boot process. (yes you can also directly build images of course...)
