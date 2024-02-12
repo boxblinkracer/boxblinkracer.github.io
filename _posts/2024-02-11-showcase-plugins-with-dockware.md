@@ -158,11 +158,11 @@ docker run --rm -p 80:80 --env MY_KEY=api123 myCompany/myPlugin:latest
 Let's be honest, manual building and updating of your Docker image isn't the most efficient approach, right?
 
 Here's a sample **GitHub workflow** to automate the process:
-It will build the image and push it as both ARM and AMD versions to Docker Hub.
+It will build the images in parallel for AMD and ARM and pushes both to Docker Hub as tags **latest-arm64** and **latest-amd64**.
+Then it creates a custom manifest for **latest** that includes both of our previous tags.
 The pipeline can be initiated manually but will also execute automatically every night at 1:30 AM.
 
-Please note, we initially build it as a plain image on GitHub before performing the multi-arch build. I encountered MySQL issues for some reason. While it works on CircleCI, I've implemented this as a workaround for GitHub.
-Also note, that somehow my website doesn't render Github secrets (for the Docker Hub credentials) in the YAML below. Please read the Github documentation on how to add secrets to your repository.
+Please note, that somehow my website doesn't render Github secrets (for the Docker Hub credentials) in the YAML below. Please read the Github documentation on how to add secrets to your repository.
 
 ```yaml
 name: Release Image
@@ -172,37 +172,55 @@ on:
   schedule:
     - cron: '30 1 * * *'
 
+env:
+  IMG_NAME: myCompany/myProject:latest
+
+
 jobs:
 
   build:
     name: Build and push
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: amd64
+            platform: linux/amd64
+          - name: arm64
+            platform: linux/arm64
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: dockerHubUserAsGithubSecret
-          password: dockerHubTokenAsGithubSecret
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Build
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: Dockerfile
-          push: false
-          tags: myCompany/myImage:latest
+          username: secrets.DOCKERHUB_USERNAME
+          password: secrets.DOCKERHUB_TOKEN
+
       - name: Build and push
-        uses: docker/build-push-action@v5
+        run: |
+          docker build -t ${{ env.IMG_NAME }}-${{ matrix.name }} --build-arg ARCH=${{ matrix.platform }} docker
+          docker push ${{ env.IMG_NAME }}-${{ matrix.name }}
+
+  manifest:
+    name: Create and push manifest
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
         with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: myCompany/myImage:latest
+          username: secrets.DOCKERHUB_USERNAME
+          password: secrets.DOCKERHUB_TOKEN
+
+      - name: Create and push manifest ${{ env.IMG_NAME }}
+        run: |
+          docker manifest create ${{ env.IMG_NAME }} --amend ${{ env.IMG_NAME }}-amd64 --amend ${{ env.IMG_NAME }}-arm64
+          docker manifest push ${{ env.IMG_NAME }}
+
 ```
 
 # Conclusion
