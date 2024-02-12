@@ -15,6 +15,7 @@ Shopware is one of the leading e-commerce platforms in Germany and Europe. With 
 This robust ecosystem forms the foundation for many plugin manufacturers and developers.
 
 But what if you, as a plugin manufacturer, wish to showcase your plugins to potential customers? What if they do not currently have a Shopware installation up and running?
+Or what if you just want an easy online setup that you can immediately reset by simply restarting your containers?
 
 This article demonstrates how to effortlessly create showcase Docker images that anyone can run with a single command. Launching and testing your plugins has never been easier - even on a local machine.
 
