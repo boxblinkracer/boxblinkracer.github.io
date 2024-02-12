@@ -157,70 +157,83 @@ docker run --rm -p 80:80 --env MY_KEY=api123 myCompany/myPlugin:latest
 
 Let's be honest, manual building and updating of your Docker image isn't the most efficient approach, right?
 
-Here's a sample **GitHub workflow** to automate the process:
+Here's a sample **CircleCI workflow** to automate the process:
 It will build the images in parallel for AMD and ARM and pushes both to Docker Hub as tags **latest-arm64** and **latest-amd64**.
 Then it creates a custom manifest for **latest** that includes both of our previous tags.
-The pipeline can be initiated manually but will also execute automatically every night at 1:30 AM.
-
-Please note, that somehow my website doesn't render Github secrets (for the Docker Hub credentials) in the YAML below. Please read the Github documentation on how to add secrets to your repository.
+The pipeline can be initiated manually but can also be run automatically and scheduled.
+I personally love to build a **Github workflow** that helps me to trigger CircleCI either manually or automatically.
 
 ```yaml
-name: Release Image
+version: 2.1
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '30 1 * * *'
+parameters:
+  imgName:
+    type: string
+    default: "myCompany/myProject"
 
-env:
-  IMG_NAME: myCompany/myProject:latest
-
+workflows:
+  release_image:
+    jobs:
+      - build-arm64:
+          name: build-arm64
+      # ------------------------------------------------------------------------------------
+      - build-amd64:
+          name: build-amd64
+      # ------------------------------------------------------------------------------------
+      - build-manifest:
+          name: update-manifest
+          requires:
+            - build-arm64
+            - build-amd64
 
 jobs:
 
-  build:
-    name: Build and push
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: amd64
-            platform: linux/amd64
-          - name: arm64
-            platform: linux/arm64
+  build-arm64:
+    machine:
+      image: ubuntu-2204:current
+      docker_layer_caching: true
+    resource_class: arm.medium
     steps:
+      - checkout
+      - run:
+          name: Docker Hub Login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Build and push
+          command: |
+            docker build -t << pipeline.parameters.imgName >>:latest-arm64 --build-arg ARCH=linux/arm64 docker
+            docker push << pipeline.parameters.imgName >>:latest-arm64
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: secrets.DOCKERHUB_USERNAME
-          password: secrets.DOCKERHUB_TOKEN
-
-      - name: Build and push
-        run: |
-          docker build -t ${{ env.IMG_NAME }}-${{ matrix.name }} --build-arg ARCH=${{ matrix.platform }} docker
-          docker push ${{ env.IMG_NAME }}-${{ matrix.name }}
-
-  manifest:
-    name: Create and push manifest
-    runs-on: ubuntu-latest
-    needs: build
+  build-amd64:
+    machine:
+      image: ubuntu-2204:current
+      docker_layer_caching: true
+    resource_class: medium
     steps:
+      - checkout
+      - run:
+          name: Docker Hub Login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Build and push
+          command: |
+            docker build -t << pipeline.parameters.imgName >>:latest-amd64 --build-arg ARCH=linux/amd64 docker
+            docker push << pipeline.parameters.imgName >>:latest-amd64
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: secrets.DOCKERHUB_USERNAME
-          password: secrets.DOCKERHUB_TOKEN
-
-      - name: Create and push manifest ${{ env.IMG_NAME }}
-        run: |
-          docker manifest create ${{ env.IMG_NAME }} --amend ${{ env.IMG_NAME }}-amd64 --amend ${{ env.IMG_NAME }}-arm64
-          docker manifest push ${{ env.IMG_NAME }}
-
+  build-manifest:
+    machine:
+      image: ubuntu-2204:current
+      docker_layer_caching: true
+    resource_class: medium
+    steps:
+      - run:
+          name: Docker Hub Login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Create and push manifest
+          command: |
+            docker manifest create << pipeline.parameters.imgName >>:latest --amend << pipeline.parameters.imgName >>:latest-amd64 --amend << pipeline.parameters.imgName >>:latest-arm64
+            docker manifest push << pipeline.parameters.imgName >>:latest
 ```
 
 # Conclusion
